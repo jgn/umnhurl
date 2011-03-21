@@ -28,6 +28,7 @@ module Hurl
       end
       doc.merge({'content' => content})
       self.couch.save_doc(doc)
+      true
     end
   end
 end
