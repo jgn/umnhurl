@@ -5,7 +5,7 @@ module Hurl
   class DB
     DIR = File.expand_path(ENV['HURL_DB_DIR'] || "db")
 
-    def couch
+    def self.couch
       return @couch if @couch
       couch_url = ENV['COUCH_URL']    if !!ENV['COUCH_URL']
       couch_url = ENV['CLOUDANT_URL'] if !!ENV['CLOUDANT_URL']
