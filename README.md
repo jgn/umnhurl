@@ -6,6 +6,10 @@ Now Hurl is an open source project for your enjoyment.
 
 <http://hurl.it/>
 
+This Fork
+---------
+
+I forked hurl to work on Heroku & CouchDB.
 
 Installation
 ------------
@@ -30,13 +34,22 @@ Now install Hurl's dependencies:
     bundle install
 
 
-Run Locally
------------
+Run On Heroku & CouchDB
+-----------------------
 
-    bundle exec shotgun config.ru
+First get a CouchDB database and get the url, including auth. I got my
+DB from [Cloudant](https://cloudant.com/).
 
-Now visit <http://localhost:9393>
+    heroku create
+    heroku rename my-clever-name
+    heroku config:add 'COUCH_URL=https://bat:password@bat.cloudant.com/benhurl/'
 
+Now you can go to [http://my-clever-name.heroku.com/](http://my-clever-name.heroku.com/)
+
+To enable github login, register a github app with the callback `http://my-clever-name.heroku.com/login/callback/` and add your configuration:
+
+    heroku config:add 'HURL_CLIENT_ID=your_client_id'
+    heroku config:add 'HURL_SECRET=your_secret'
 
 Issues
 ------
