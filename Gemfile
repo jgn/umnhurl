@@ -7,6 +7,7 @@ gem 'coderay',   '~>0.8.357'
 gem 'couchrest', '~>1.0'
 
 gem 'sinatra_auth_github'
+gem 'yajl-ruby', '~>0.7.8'
 
 group :test do
   gem 'shotgun'
