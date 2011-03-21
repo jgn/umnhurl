@@ -3,6 +3,10 @@ GEM
   specs:
     addressable (2.2.2)
     coderay (0.8.357)
+    couchrest (1.0.1)
+      json (>= 1.4.6)
+      mime-types (>= 1.15)
+      rest-client (>= 1.5.1)
     curb (0.7.8)
     faraday (0.4.6)
       addressable (>= 2.1.1)
@@ -40,6 +44,7 @@ PLATFORMS
 
 DEPENDENCIES
   coderay (~> 0.8.357)
+  couchrest (~> 1.0)
   curb (~> 0.7.8)
   mustache (~> 0.11.2)
   shotgun

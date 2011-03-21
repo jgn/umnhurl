@@ -1,21 +1,48 @@
 require 'fileutils'
+require 'couchrest'
 
 module Hurl
   class DB
     DIR = File.expand_path(ENV['HURL_DB_DIR'] || "db")
 
+    def couch
+      return @couch if @couch
+      couch_url = ENV['COUCH_URL']    if !!ENV['COUCH_URL']
+      couch_url = ENV['CLOUDANT_URL'] if !!ENV['CLOUDANT_URL']
+      if couch_url
+        @couch = CouchRest.database(couch_url)
+      end
+    end
+
     def self.find(scope, id)
       decode File.read(dir(scope, id) + id) if id && id.is_a?(String)
     rescue Errno::ENOENT
-      nil
+      if self.couch
+        self.find_couchdb(scope, id)
+      else
+        nil
+      end
+    end
+
+    def self.find_couchdb(scope, id)
+      id = [scope, id].join('/')
+      self.couch.get(id)['content']
+    rescue RestClient::ResourceNotFound
     end
 
     def self.save(scope, id, content)
+      return self.save_couchdb(scope, id, content) if self.couch
+
       File.open(dir(scope, id) + id, 'w') do |f|
         f.puts encode(content)
       end
 
       true
+    end
+
+    def self.save_couchdb(scope, id, content)
+      id = [scope, id].join('/')
+      self.couch.save_doc({'_id' => id, 'content' => content})
     end
 
     def self.dir(scope, id)
