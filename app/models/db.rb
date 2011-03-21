@@ -3,7 +3,7 @@ require 'couchrest'
 
 module Hurl
   class DB
-    DIR = File.expand_path(ENV['HURL_DB_DIR'] || "db")
+    DIR = File.expand_path(ENV['HURL_DB_DIR'] || App.root + "/db")
 
     def self.couch
       return @couch if @couch
