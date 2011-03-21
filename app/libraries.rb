@@ -11,7 +11,6 @@ require "rexml/document"
 
 # bundled gems
 require 'sinatra/base'
-require 'yajl'
 require 'curb'
 require 'mustache/sinatra'
 require 'sinatra/auth/github'
