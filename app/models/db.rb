@@ -4,7 +4,7 @@ require 'couchrest'
 module Hurl
   class DB
     ROOT_DIR = File.dirname(File.dirname(File.dirname(File.expand_path(__FILE__))))
-    DIR = File.expand_path(ENV['HURL_DB_DIR'] || (self.ROOT_DIR + "/db"))
+    DIR = File.expand_path(ENV['HURL_DB_DIR'] || (ROOT_DIR + "/db"))
 
     def self.couch
       return @couch if @couch
