@@ -37,7 +37,6 @@ GEM
       json (>= 1.0.0)
       oauth2 (~> 0.0.8)
       warden (~> 0.10)
-    yajl-ruby (0.7.8)
 
 PLATFORMS
   ruby
@@ -50,4 +49,3 @@ DEPENDENCIES
   shotgun
   sinatra (~> 1.0)
   sinatra_auth_github
-  yajl-ruby (~> 0.7.8)
