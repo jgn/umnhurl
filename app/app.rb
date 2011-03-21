@@ -7,7 +7,7 @@ module Hurl
 
     dir = File.dirname(File.expand_path(__FILE__))
 
-    set :root,     dir
+    set :root,     File.dirname(dir)
     set :app_file, __FILE__
 
     set :views, "#{dir}/templates"
