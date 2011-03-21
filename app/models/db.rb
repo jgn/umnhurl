@@ -13,14 +13,14 @@ module Hurl
     end
 
     def self.find(scope, id)
-      id = [scope, id].join('/')
+      id = [scope, id].join('.')
       self.couch.get(id)['content']
     rescue RestClient::ResourceNotFound
       nil
     end
 
     def self.save(scope, id, content)
-      id = [scope, id].join('/')
+      id = [scope, id].join('.')
       begin
         doc = self.couch.get(id)
       rescue RestClient::ResourceNotFound
