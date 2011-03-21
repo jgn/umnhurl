@@ -26,7 +26,7 @@ module Hurl
       rescue RestClient::ResourceNotFound
         doc = {'_id' => id}
       end
-      doc.merge({'content' => content})
+      doc.merge!({'content' => content})
       self.couch.save_doc(doc)
       true
     end
