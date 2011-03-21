@@ -28,6 +28,7 @@ module Hurl
       id = [scope, id].join('/')
       self.couch.get(id)['content']
     rescue RestClient::ResourceNotFound
+      nil
     end
 
     def self.save(scope, id, content)
@@ -42,7 +43,13 @@ module Hurl
 
     def self.save_couchdb(scope, id, content)
       id = [scope, id].join('/')
-      self.couch.save_doc({'_id' => id, 'content' => content})
+      begin
+        doc = self.couch.get(id)
+      rescue RestClient::ResourceNotFound
+        doc = {'_id' => id}
+      end
+      doc.merge({'content' => content})
+      self.couch.save_doc(doc)
     end
 
     def self.dir(scope, id)
