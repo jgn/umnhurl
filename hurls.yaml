@@ -10,9 +10,11 @@ Vimeo API (video):
   auth: none
 
 GitHub API (repository):
-  url: http://github.com/api/v2/json/repos/show/defunkt/hurl
+  url: https://api.github.com/repos/defunkt/hurl
   method: GET
   auth: none
+  headers:
+    Accept: application/vnd.github.v3+json
 
 Convore API (user):
   url: https://convore.com/api/users/140.json
