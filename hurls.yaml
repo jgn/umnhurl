@@ -1,8 +1,8 @@
 # The default Hurls shown on the home page
-Twitter API (public timeline):
-  url: http://twitter.com/statuses/public_timeline.json
-  method: GET
-  auth: none
+# Twitter API (public timeline):
+#   url: http://twitter.com/statuses/public_timeline.json
+#   method: GET
+#   auth: none
 
 Vimeo API (video):
   url: http://vimeo.com/api/v2/video/6238577.xml
@@ -13,10 +13,12 @@ GitHub API (repository):
   url: https://api.github.com/repos/defunkt/hurl
   method: GET
   auth: none
-  headers:
-    Accept: application/vnd.github.v3+json
+  header-keys:
+  - Accept
+  header-vals:
+  - application/vnd.github.beta+json
 
-Convore API (user):
-  url: https://convore.com/api/users/140.json
-  method: GET
-  auth: none
+# Convore API (user):
+#   url: https://convore.com/api/users/140.json
+#   method: GET
+#   auth: none
