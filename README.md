@@ -1,37 +1,15 @@
-Hurl
-====
+UmnHurl
+=======
 
-Hurl was created for the Rails Rumble 2009 in 48 hours.
+This is a conflation of <https://github.com/benatkin/hurl> (for Heroku and CouchDB) and <https://github.com/twilio/hurl> (for Github auth, and other fixes)
+
+Hurl was created for the Rails Rumble 2009 in 48 hours: See <https://github.com/defunkt/hurl>
 Now Hurl is an open source project for your enjoyment.
-
-<http://hurl.it/>
-
-This Fork
----------
-
-I forked hurl to work on Heroku & CouchDB.
 
 Installation
 ------------
 
 Hurl requires Ruby 1.8.6+
-
-First download hurl and cd into the directory:
-
-    git clone git://github.com/defunkt/hurl
-    cd hurl
-
-Or download [the zip](http://github.com/defunkt/hurl/zipball/master).
-
-Next make sure you have [RubyGems](https://rubygems.org/pages/download) installed.
-
-Then install [Bundler](http://gembundler.com/):
-
-    gem install bundler
-
-Now install Hurl's dependencies:
-
-    bundle install
 
 
 Run On Heroku & CouchDB
