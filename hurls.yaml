@@ -16,7 +16,7 @@ GitHub API (repository):
   header-keys:
   - Accept
   header-vals:
-  - application/vnd.github.beta+json
+  - application/vnd.github.v3+json
 
 # Convore API (user):
 #   url: https://convore.com/api/users/140.json
